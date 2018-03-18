@@ -2,7 +2,7 @@
 /*eslint-env node*/
 
 module.exports = {
-  entry: "./client/src/components/index.js",
+  entry: "./client/src/index.js",
   output: {
     path: __dirname + "/",
     filename: "./client/bundle.js"

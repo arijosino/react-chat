@@ -5,9 +5,12 @@ import Modal from "./modal";
 import ChatInput from "./chatinput";
 import Message from "./message";
 
+import { subscribeToMessages } from "../socket";
+
 class Chat extends React.Component {
   constructor(props) {
     super(props);
+    subscribeToMessages(this.props.getMessage);
   }
   componentDidUpdate() {
     this.messagesEnd.scrollIntoView();
@@ -48,6 +51,12 @@ const mapDispatch = (dispatch) => {
       dispatch({
         type: "SET_NAME",
         payload: username
+      });
+    },
+    getMessage: (message) => {
+      dispatch({
+        type: "GET_MESSAGE",
+        payload: message
       });
     }
   };
